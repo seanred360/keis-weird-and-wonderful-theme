@@ -2,6 +2,8 @@
 
 A custom Wordpress theme for the Voice actor/ comedian Kei Gambit
 
+<img src="./screenshots/mockup-all.png" alt="animation preview"/>
+
 ## Table of contents
 
 - [Overview](#overview)
@@ -15,17 +17,8 @@ A custom Wordpress theme for the Voice actor/ comedian Kei Gambit
 
 ### Screenshots
 
-<div class='figma'>
-<img src="./screenshots/screenshot-figma.png" alt="animation preview" width="320"/>
-<img src="./screenshots/arrow-down.png" alt="animation preview" width="320"/>
-<img src="./screenshots/mockup-all.png" alt="animation preview"/>
-</div>
-
-<style>
-  .figma {
-    display:flex; flex-direction:column; justify-content:center; align-items:center;
-  }
-</style>
+<img src="./screenshots/preview-section-hover.gif" alt="hover animation preview"/>
+<img src="./screenshots/preview-nav-hover.gif" alt="navbar hover preview"/>
 
 ### Links
 
@@ -50,17 +43,8 @@ A custom Wordpress theme for the Voice actor/ comedian Kei Gambit
 First I traced Kei's real signature and made it an SVG. The Signature is broken up into 3 strokes. The stroke-dasharray property sets the length of dashes in an SVG shape. The stroke-dashoffset property controls where the dash of a stroke begins. We can animate the stroke-dashoffset to make it appear like someone is writing the word.
 <br>
 <br>
-<div class='flex'>
 <img src="./screenshots/signature.jpg" alt="ink signature" width="320"/>
-<img src="./screenshots/arrow.png" alt="digitally traced signature" width="200"/>
 <img src="./screenshots/signature-black-round.png" alt="digitally traced signature" width="320"/>
-</div>
-
-<style>
-  .flex {
-    display:flex;
-  }
-</style>
 
 ```sass
 .stroke-1,
