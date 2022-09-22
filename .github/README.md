@@ -1,58 +1,168 @@
-<p align="center"><img src="https://understrap.com/wp-content/uploads/2022/02/Understrap_Logo_Color.svg" width="320" height="auto"></p>
+# <img src="./screenshots/header.gif" alt="animation preview"/>
 
-#### See: [Official Demo](https://demos.understrap.com) | Read: [Official Docs Page](https://docs.understrap.com/)
+A custom Wordpress theme for the Voice actor/ comedian Kei Gambit
 
-# Understrap Child Starter Theme
+## Table of contents
 
-Website: [understrap.com](https://understrap.com)
+- [Overview](#overview)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+  - [Built with](#built-with)
+- [Features](#features)
+- [Author](#author)
 
-Parent Theme Project: [github.com/understrap/understrap](https://github.com/understrap/understrap)
+## Overview
 
-Premium Child Themes: [understrap.com/child-themes/](https://understrap.com/child-themes/)
+### Screenshots
 
-## About
+<div style="display:flex; flex-direction:column; justify-content:center; align-items:center">
+<img src="./screenshots/screenshot-figma.png" alt="animation preview" width="320"/>
+<img src="./screenshots/arrow-down.png" alt="animation preview" width="320"/>
+<img src="./screenshots/mockup-all.png" alt="animation preview"/>
+</div>
+<!-- ![screenshot](./screenshots/mockup-all.png) -->
 
-Understrap is the renowned open-source WordPress starter theme that combines Underscores with Bootstrap. Trusted by more than 100,000 developers. This repo holds the **Child Starter Theme** for developers using the [Understrap Theme Framework](https://github.com/understrap/understrap).
+### Links
 
-## Documentation
+- See the live site [here](https://keigambit.com)
+- Figma design [here](https://www.figma.com/file/aJhMr5g2vI1OFT72YazBz9/Kei-Gambit?node-id=0%3A1)
 
-Full documentation for this starter theme is available at [docs.understrap.com](https://docs.understrap.com).
+## Features
 
+### Built with
 
-## Questions
+- ![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white)
+- ![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
+- ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
+- ![WordPress](https://img.shields.io/badge/WordPress-%23117AC9.svg?style=for-the-badge&logo=WordPress&logoColor=white)
+- [Understrap](https://understrap.com/)
 
-For support requests and bugs, we recommend browsing our issues [here (parent theme)](https://github.com/understrap/understrap/issues) and [here (child theme)](https://github.com/understrap/understrap-child/issues) and opening a new issue if necessary. For more broad discussion, like questions about the roadmap, visit our [discussion board](https://github.com/understrap/understrap/discussions).
+#### Animated Signature
 
-## Basic Features
+<!-- ![screenshot](./screenshots/preview-signature.gif) -->
+<img src="./screenshots/preview-signature.gif" alt="animation preview" width="320"/>
+<br>
+<br>
+First I traced Kei's real signature and made it an SVG. The Signature is broken up into 3 strokes. The stroke-dasharray property sets the length of dashes in an SVG shape. The stroke-dashoffset property controls where the dash of a stroke begins. We can animate the stroke-dashoffset to make it appear like someone is writing the word.
+<br>
+<br>
+<div style="display:flex;">
+<img src="./screenshots/signature.jpg" alt="ink signature" width="320"/>
+<img src="./screenshots/arrow.png" alt="digitally traced signature" width="200"/>
+<img src="./screenshots/signature-black-round.png" alt="digitally traced signature" width="320"/>
+</div>
 
-- Combines Underscore’s PHP/JS files and Bootstrap’s HTML/CSS/JS.
-- Comes with Bootstrap v5 Sass source files and additional .scss files. Nicely sorted and ready to add your own variables and customize the Bootstrap variables.
-- Uses sass and postCSS to handle compiling all of the styles into one style sheet. The theme also includes rollup.js to handle javascript compilation and minification. 
-- Uses a single minified CSS file for all the basic stuff.
-- [Font Awesome](http://fortawesome.github.io/Font-Awesome/) integration (v4.7.0)
-- Jetpack ready
-- WooCommerce support
-- Contact Form 7 support
-- Translation ready
+```sass
+.stroke-1,
+.stroke-2,
+.stroke-3 {
+  fill: none;
+  stroke: #000;
+  stroke-width: 20;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+  transition: all 0.3s ease;
 
-## Understrap Academy 
+position: relative;
+z-index: 200;
+}
 
-[Become an Understrap Expert.](https://www.understrapacademy.com) Presented by the team behind the Understrap Theme Framework, Understrap Academy is a collection of online courses that will help you speed up your development process, make your projects more profitable, and become an Understrap expert in record time.
+.stroke-1 {
+stroke-dasharray: 1103;
+animation: write1 2s ease-out;
+}
+.stroke-2 {
+stroke-dasharray: 2206;
+animation: write2 4s ease-out;
+}
+.stroke-3 {
+stroke-dasharray: 8715;
+animation: write3 4s ease-out;
+}
 
-## Bootstrap 5 (and Bootstrap 4) Support
+@keyframes write1 {
+0% {
+stroke-dashoffset: 1103;
+}
+100% {
+stroke-dashoffset: 0;
+}
+}
 
-This child theme uses Bootstrap 5 and requires [Understrap Parent Theme 1.1](https://wordpress.org/themes/understrap) or greater for best functionality. It does not create JS or CSS files that work with Bootstrap 4 markup. In fact, in the `functions.php` file, this child theme overrides the parent theme's customizer settings.
+@keyframes write2 {
+0%,
+25% {
+stroke-dashoffset: 2206;
+}
+50% {
+stroke-dashoffset: 0;
+}
+}
 
-If you want to build a child theme with Bootstrap 4, please use [the 1.0.1 child theme release](https://github.com/understrap/understrap-child/releases/tag/v1.0.1) as it was the last version built to support Bootstrap 4.
+@keyframes write3 {
+0%,
+35% {
+stroke-dashoffset: 8715;
+}
+100% {
+stroke-dashoffset: 0;
+}
+}
 
-## License
+```
 
-Copyright 2022 [Howard Development & Consulting, LLC](https://howarddc.com).
-Understrap is distributed under the terms of the GNU GPL version 2
+#### How to use custom block patterns
 
-http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
+<!-- ![screenshot](./screenshots/screenshot-book-block.png) -->
+<img src="./screenshots/screenshot-book-block.png" alt="drawing" width="320"/>
 
-## Credits
-- Font Awesome: https://fontawesome.com/v4.7/license/ (Font: SIL OFL 1.1, (S)CSS: MIT)
-- Bootstrap: http://getbootstrap.com | https://github.com/twbs/bootstrap/blob/master/LICENSE (MIT)
-- WP Bootstrap Navwalker by Edward McIntyre & William Patton: https://github.com/wp-bootstrap/wp-bootstrap-navwalker (GNU GPLv3)
+There are custom block patterns for adding books, comedy events and filmography credits, Simply search for blocks with the keyword 'kei' in the Gutenberg block editor on your WP site. Blocks are created in PHP and have CSS automatically applied to them.
+
+```php
+
+<?php
+/**
+ * Title: Kei Book
+ * Slug: keistheme/kei-book
+ * Categories: image
+ * Description: A book cover and synopsis for Kei's books
+ * Keywords: kei, book, synopsis
+ * Block Types: content
+ */
+?>
+
+<!-- wp:columns -->
+<div class="wp-block-columns"><!-- wp:column {"width":"33.33%"} -->
+<div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:image {"id":221,"sizeSlug":"large","linkDestination":"none","className":"book-img"} -->
+<figure class="wp-block-image size-large book-img"><img src="http://keigambit.local/wp-content/uploads/2022/08/kei-book-680x1024.jpg" alt="" class="wp-image-221"/></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"width":"66.66%","className":"book-synopsis"} -->
+<div class="wp-block-column book-synopsis" style="flex-basis:66.66%"><!-- wp:columns -->
+<div class="wp-block-columns"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:heading {"className":"book-header"} -->
+<h2 class="book-header">Synopsis</h2>
+<!-- /wp:heading --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:paragraph {"className":"book-paragraph"} -->
+<p class="book-paragraph">After a mysterious global event caused random people all over the earth to start developing super powers, Daemons follows a London detective team set on solving the more gruesome and bloody of power inflicted victims, but not all is as it seems.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons {"layout":{"type":"flex","verticalAlignment":"top"}} -->
+<div class="wp-block-buttons"><!-- wp:button {"className":"btn-buy-now"} -->
+<div class="wp-block-button btn-buy-now"><a class="wp-block-button__link" href="https://www.amazon.co.uk/Daemons-Cut-Ribbons-Ari-Abramovsky-ebook/dp/B08HM28TMD">Buy now </a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+```
+
+## Author
+
+- Website - [seanred.io](https://seanred.io)
+- GitHub - [https://github.com/seanred360](https://github.com/seanred360)
